@@ -58,3 +58,6 @@
 [submodule "pelican-md-yaml"]
 	path = pelican-md-yaml
 	url = https://github.com/joachimneu/pelican-md-yaml.git
+[submodule "pelican-bootstrap3-components"]
+	path = pelican-bootstrap3-components
+	url = ./pelican-bootstrap3-components
