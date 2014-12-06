@@ -10,7 +10,7 @@ place it in its own `article.toc` variable for use in templates.
 from os import path
 from bs4 import BeautifulSoup
 from pelican import signals, readers, contents
-
+import pprint
 
 def extract_toc(content):
     if isinstance(content, contents.Static):
@@ -23,7 +23,13 @@ def extract_toc(content):
     # if it is a Markdown file
     if extension in readers.MarkdownReader.file_extensions:
         toc = soup.find('div', class_='toc')
-        if toc: toc.extract()
+        if toc: 
+            #pprint.pprint( toc)
+            #pprint.pprint(toc.extract())
+            toc.extract() # why twice?
+        else:
+            raise Exception("TOC not found")
+
     # else if it is a reST file
     elif extension in readers.RstReader.file_extensions:
         toc = soup.find('div', class_='contents topic')
